@@ -13,7 +13,7 @@ def home():
 def ner():
     input = [x for x in request.form.values()]
     for text in input:
-        output += "{}\n\n".format(text)
+        output = "{}\n\n".format(text)
         doc = nlp(text)
         for ent in doc.ents:
             output += "{} {} {} {}\n".format(ent.label_, ent.text, ent.start_char, ent.end_char)
