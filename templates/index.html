@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Custom NER</title>
+</head>
+
+<body>
+ <div class="login">
+    <h1>Named Entity Recognizer</h1>
+    <form action="{{ url_for('ner')}}"method="post">
+    	<input type="text" name="input_sentence" placeholder="Input Sentence" required="required" />
+      <br>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Show Named Entities</button>
+    </form>
+
+   <br>
+   <br>
+   {{ named_entities }}
+
+ </div>
+
+</body>
+</html>
