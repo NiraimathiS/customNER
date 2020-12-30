@@ -11,7 +11,7 @@ def home():
 
 @app.route('/ner',methods=['POST'])
 def ner():
-    input = [for x in request.form.values()]
+    input = [x for x in request.form.values()]
     for text in input:
         doc = nlp(text)
         for ent in doc.ents:
