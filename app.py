@@ -13,12 +13,13 @@ def home():
 def ner():
     input = [x for x in request.form.values()]
     for text in input:
-        output = "{}\n\n".format(text)
+        input_text = "{}".format(text)
         doc = nlp(text)
+        output = ""
         for ent in doc.ents:
-            output += "{} {} {} {}\n".format(ent.label_, ent.text, ent.start_char, ent.end_char)
+            output += "{} {} {} {}".format(ent.label_, ent.text, ent.start_char, ent.end_char)
 
-    return render_template('index.html', named_entities='{}'.format(output))
+    return render_template('index.html', text='{}'.format(input_text), named_entities='{}'.format(output))
 
 
 if __name__ == "__main__":
