@@ -14,11 +14,13 @@
       <br>
       <button type="submit" class="btn btn-primary btn-block btn-large">Show Named Entities</button>
     </form>
-   <br>
-   <br>
-   {{ text }}
-   <br>
-   {{ named_entities }}
+    <br>
+    <br>
+    {{ text }}
+    <br>
+    {% autoescape false %}
+    {{named_entities}}
+    {% endautoescape %}
 
  </div>
 

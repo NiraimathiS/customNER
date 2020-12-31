@@ -15,11 +15,11 @@ def ner():
     for text in input:
         input_text = "{}".format(text)
         doc = nlp(text)
-        output = ""
+        output = "Named Entities:\n"
         for ent in doc.ents:
-            output += "{} {} {} {}".format(ent.label_, ent.text, ent.start_char, ent.end_char)
+            output += "{} {} {} {}\n".format(ent.label_, ent.text, ent.start_char, ent.end_char)
 
-    return render_template('index.html', text='{}'.format(input_text), named_entities='{}'.format(output))
+    return render_template('index.html', text='{}'.format(input_text), named_entities='{}'.format(output.replace('\n', '<br>')))
 
 
 if __name__ == "__main__":
