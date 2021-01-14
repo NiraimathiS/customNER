@@ -106,7 +106,7 @@ def train_model(lang_cls, load_model, training_dataset, train_iter):
     # https://spacy.io/usage/training
     disable_pipes = [pipe for pipe in nlp.pipe_names if pipe != 'ner']
     with nlp.disable_pipes(*disable_pipes):
-        for train_iter in range(10):
+        for iter in range(train_iter):
             random.shuffle(training_dataset)
             losses = {}
             batches = minibatch(training_dataset, size=compounding(1, 16, 1.001))
