@@ -13,7 +13,7 @@ def home():
 def ner():
     input = [x for x in request.form.values()]
     for text in input:
-        input_text = "{}".format(text)
+        input_text = "Input provided: {}".format(text)
         doc = nlp(text)
         output = "Named Entities:\n"
         for ent in doc.ents:
